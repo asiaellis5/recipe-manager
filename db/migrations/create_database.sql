@@ -1,1 +1,2 @@
-CREATE DATABASE Recipe-Manager;
+CREATE DATABASE recipe_manager;
+CREATE DATABASE recipe_manager_test;

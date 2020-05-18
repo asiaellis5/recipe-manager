@@ -1,9 +1,17 @@
 require 'recipe'
+require 'pg'
 
 describe Recipe do
 
   describe ".all" do
     it "returns a list of all recipes" do
+
+      connection = PG.connect(dbname: 'recipe_manager_test')
+
+      connection.exec("INSERT INTO recipes (url) VALUES('http://www.mobkitchen.co.uk/recipes/popcorn-cauliflower');")
+      connection.exec("INSERT INTO recipes (url) VALUES('https://www.mobkitchen.co.uk/recipes/pesto-veggie-traybake');")
+      connection.exec("INSERT INTO recipes (url) VALUES('http://www.mobkitchen.co.uk/recipes/halloumi-crouton-super-salad');")
+      
       recipes = Recipe.all
 
       expect(recipes).to include("http://www.mobkitchen.co.uk/recipes/popcorn-cauliflower")
