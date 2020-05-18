@@ -4,11 +4,7 @@
       "/Users/asiaellis/Projects/course-run-through/recipe-manager/app.rb": {
         "lines": [
           1,
-          null,
           1,
-          1,
-          1,
-          null,
           null,
           1,
           1,
@@ -16,6 +12,22 @@
           null,
           null,
           1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/asiaellis/Projects/course-run-through/recipe-manager/lib/recipe.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          2,
+          null,
           null
         ]
       },
@@ -35,8 +47,28 @@
           null,
           null
         ]
+      },
+      "/Users/asiaellis/Projects/course-run-through/recipe-manager/spec/recipe_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1589797963
+    "timestamp": 1589798491
   }
 }

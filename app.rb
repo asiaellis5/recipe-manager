@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/recipe'
 
 class RecipeManager < Sinatra::Base
   get '/' do
@@ -6,7 +7,7 @@ class RecipeManager < Sinatra::Base
   end
 
   get '/recipes' do
-    @recipes = ["Recipe One", "Recipe Two", "Recipe Three"]
+    @recipes = Recipe.all
     erb :'recipes/index'
   end
 
