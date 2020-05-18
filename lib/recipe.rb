@@ -1,7 +1,11 @@
+require 'pg'
+
 class Recipe
 
 
   def self.all
-    ["http://www.mobkitchen.co.uk/recipes/popcorn-cauliflowers", "https://www.mobkitchen.co.uk/recipes/pesto-veggie-traybake", "http://www.mobkitchen.co.uk/recipes/halloumi-crouton-super-salad"]
+    connection = PG.connect(dbname: 'recipe_manager')
+    result = connection.exec('SELECT * FROM recipes')
+    result.map { |recipe| recipe['url']}
   end
 end
