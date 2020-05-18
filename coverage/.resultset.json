@@ -31,6 +31,13 @@
           null,
           1,
           null,
+          1,
+          null,
+          1,
+          8,
+          8,
+          null,
+          null,
           null,
           1,
           4,
@@ -39,14 +46,16 @@
           null,
           null,
           1,
-          2,
-          2,
+          5,
+          5,
           null,
           null
         ]
       },
       "/Users/asiaellis/Projects/course-run-through/recipe-manager/spec/features/adding_a_new_recipe_spec.rb": {
         "lines": [
+          1,
+          1,
           1,
           1,
           1,
@@ -101,8 +110,8 @@
           1,
           null,
           1,
-          1,
-          1,
+          null,
+          null,
           null,
           null,
           null,
@@ -119,6 +128,6 @@
         ]
       }
     },
-    "timestamp": 1589804976
+    "timestamp": 1589810315
   }
 }

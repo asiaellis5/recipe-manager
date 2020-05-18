@@ -12,7 +12,7 @@ class RecipeManager < Sinatra::Base
   end
 
   post '/recipes/add' do
-    Recipe.create(params[:url])
+    Recipe.create(params[:url], params[:title])
     redirect '/recipes'
   end
 
