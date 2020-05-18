@@ -5,6 +5,6 @@ feature 'Adding Recipes' do
     fill_in :url, with: 'https://www.mobkitchen.co.uk/recipes/halloumi-wrap'
     click_button('Add Recipe')
     expect(page).to have_content 'Halloumi Wrap'
-    expect(page).to have_content 'https://www.mobkitchen.co.uk/recipes/halloumi-wrap'
+    expect(page).to have_link('Halloumi Wrap', href: 'https://www.mobkitchen.co.uk/recipes/halloumi-wrap')
   end
 end
