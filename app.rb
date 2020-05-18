@@ -5,5 +5,10 @@ class RecipeManager < Sinatra::Base
     'Recipes'
   end
 
+  get '/recipes' do
+    recipes = ["Recipe One", "Recipe Two", "Recipe Three"]
+    recipes.join(",")
+  end
+
   run! if app_file == $0
 end
