@@ -8,7 +8,7 @@
           null,
           1,
           1,
-          1,
+          2,
           null,
           null,
           1,
@@ -35,6 +35,11 @@
           null
         ]
       },
+      "/Users/asiaellis/Projects/course-run-through/recipe-manager/spec/features/adding_a_new_recipe_spec.rb": {
+        "lines": [
+
+        ]
+      },
       "/Users/asiaellis/Projects/course-run-through/recipe-manager/spec/features/view_recipes_spec.rb": {
         "lines": [
           1,
@@ -51,6 +56,8 @@
           1,
           null,
           1,
+          1,
+          null,
           1,
           1,
           1,
@@ -87,6 +94,6 @@
         ]
       }
     },
-    "timestamp": 1589803039
+    "timestamp": 1589803798
   }
 }

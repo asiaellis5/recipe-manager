@@ -3,7 +3,7 @@ require './lib/recipe'
 
 class RecipeManager < Sinatra::Base
   get '/' do
-    'Recipes'
+    erb :'index'
   end
 
   get '/recipes' do

@@ -10,8 +10,10 @@ feature 'Viewing recipes' do
       connection.exec("INSERT INTO recipes (url) VALUES('http://www.mobkitchen.co.uk/recipes/popcorn-cauliflower');")
       connection.exec("INSERT INTO recipes (url) VALUES('https://www.mobkitchen.co.uk/recipes/pesto-veggie-traybake');")
       connection.exec("INSERT INTO recipes (url) VALUES('http://www.mobkitchen.co.uk/recipes/halloumi-crouton-super-salad');")
-      
-    visit('/recipes')
+
+    visit('/')
+    click_button('View Recipes')
+    
     expect(page).to have_content('http://www.mobkitchen.co.uk/recipes/popcorn-cauliflower')
     expect(page).to have_content('https://www.mobkitchen.co.uk/recipes/pesto-veggie-traybake')
     expect(page).to have_content('http://www.mobkitchen.co.uk/recipes/halloumi-crouton-super-salad')
