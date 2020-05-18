@@ -6,8 +6,8 @@ class RecipeManager < Sinatra::Base
   end
 
   get '/recipes' do
-    recipes = ["Recipe One", "Recipe Two", "Recipe Three"]
-    recipes.join(",")
+    @recipes = ["Recipe One", "Recipe Two", "Recipe Three"]
+    erb :'recipes/index'
   end
 
   run! if app_file == $0
