@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'simplecov-console'
+require_relative './setup_test_database'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                  SimpleCov::Formatter::Console
@@ -9,6 +10,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 # Set the environment to "test"
+# ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
@@ -38,6 +40,9 @@ Capybara.app = RecipeManager
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.before(:each) do |config|
+    setup_test_database
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
