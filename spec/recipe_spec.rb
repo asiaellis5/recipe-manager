@@ -20,5 +20,13 @@ describe Recipe do
       
     end
   end
+
+  describe ".create" do
+    it "adds a new recipe to the database" do
+      Recipe.create("https://www.mobkitchen.co.uk/recipes/halloumi-wrap")
+      recipes = Recipe.all
+      expect(recipes).to include("https://www.mobkitchen.co.uk/recipes/halloumi-wrap")
+    end
+  end
   
 end

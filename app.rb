@@ -11,5 +11,10 @@ class RecipeManager < Sinatra::Base
     erb :'recipes/index'
   end
 
+  post '/recipes/add' do
+    Recipe.create(params[:url])
+    redirect '/recipes'
+  end
+
   run! if app_file == $0
 end
