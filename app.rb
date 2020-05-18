@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class RecipeManager < Sinatra::Base
   get '/' do
-    'Hello World'
+    'Recipes'
   end
 
   run! if app_file == $0
