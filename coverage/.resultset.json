@@ -64,13 +64,11 @@
           null,
           1,
           13,
-          13,
           42,
           null,
           null,
           1,
           23,
-          23,
           null,
           null,
           1,
@@ -80,25 +78,12 @@
           null,
           1,
           2,
-          2,
           null,
           null,
           1,
           2,
           2,
-          2,
           null,
-          null
-        ]
-      },
-      "/Users/asiaellis/Projects/course-run-through/recipe-manager/database_connection_setup.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null,
-          0,
           null
         ]
       },
@@ -117,8 +102,19 @@
           null,
           null,
           1,
+          43,
+          null,
+          null
+        ]
+      },
+      "/Users/asiaellis/Projects/course-run-through/recipe-manager/database_connection_setup.rb": {
+        "lines": [
           1,
           null,
+          1,
+          1,
+          null,
+          0,
           null
         ]
       },
@@ -314,6 +310,6 @@
         ]
       }
     },
-    "timestamp": 1589900202
+    "timestamp": 1589900355
   }
 }
