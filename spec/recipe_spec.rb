@@ -2,14 +2,15 @@
 
 require 'recipe'
 require 'pg'
+require 'web_helper'
 
 describe Recipe do
 
   before(:each) do
-    Recipe.create('http://www.mobkitchen.co.uk/recipes/popcorn-cauliflower', 'Popcorn Cauliflower')
-    Recipe.create('https://www.mobkitchen.co.uk/recipes/pesto-veggie-traybake', 'Pesto Veggie Traybake')
-    Recipe.create('http://www.mobkitchen.co.uk/recipes/halloumi-crouton-super-salad', 'Haloumi Salad')
+   create_recipes
   end
+
+  
   describe '.all' do
     it 'returns a list of all recipes' do
       connection = PG.connect(dbname: 'recipe_manager_test')
