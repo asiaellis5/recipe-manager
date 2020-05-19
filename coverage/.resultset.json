@@ -90,6 +90,30 @@
           null
         ]
       },
+      "/Users/asiaellis/Projects/course-run-through/recipe-manager/spec/database_connection_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/asiaellis/Projects/course-run-through/recipe-manager/lib/database_connection.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/asiaellis/Projects/course-run-through/recipe-manager/spec/features/adding_a_new_recipe_spec.rb": {
         "lines": [
           null,
@@ -253,6 +277,6 @@
         ]
       }
     },
-    "timestamp": 1589898954
+    "timestamp": 1589899591
   }
 }
