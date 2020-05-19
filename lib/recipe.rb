@@ -21,7 +21,6 @@ class Recipe
   end
 
   def self.update(id, url, title)
-    ENV['ENVIRONMENT'] == 'test' ? connection = PG.connect(dbname: 'recipe_manager_test') : connection = PG.connect(dbname: 'recipe_manager')
     result = DatabaseConnection.query("UPDATE recipes SET url= '#{url}', title= '#{title}' WHERE id= '#{id}'")
   end
 
