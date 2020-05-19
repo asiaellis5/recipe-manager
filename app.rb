@@ -30,6 +30,11 @@ class RecipeManager < Sinatra::Base
     redirect '/recipes'
   end
 
+  delete '/recipe/:id' do
+    Recipe.delete(params[:id])
+    redirect '/recipes'
+  end
+
 
 
   run! if app_file == $PROGRAM_NAME
