@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'database_connection'
+require_relative 'database_connection'
 
 class Recipe
   attr_reader :title, :url, :id
