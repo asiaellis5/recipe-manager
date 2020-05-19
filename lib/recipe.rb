@@ -26,4 +26,9 @@ class Recipe
     ENV['ENVIRONMENT'] == 'test' ? connection = PG.connect(dbname: 'recipe_manager_test') : connection = PG.connect(dbname: 'recipe_manager')
     result = connection.exec("UPDATE recipes SET url= '#{url}', title= '#{title}' WHERE id= '#{id}'")
   end
+
+  def self.delete(id)
+    ENV['ENVIRONMENT'] == 'test' ? connection = PG.connect(dbname: 'recipe_manager_test') : connection = PG.connect(dbname: 'recipe_manager')
+    result = connection.exec("DELETE FROM recipes WHERE id = '#{id}'")
+  end
 end

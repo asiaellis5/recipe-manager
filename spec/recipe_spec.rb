@@ -39,4 +39,14 @@ describe Recipe do
       expect(new_recipes[-1].title).to eq "Vegan Risotto"
     end
   end
+
+  describe ".delete" do
+    it "deletes a recipe from the database" do
+      recipes = Recipe.all
+      Recipe.delete(recipes[0].id)
+      updated_recipes = Recipe.all
+      expect(updated_recipes.length).to eq 2
+      expect(updated_recipes[0].title).to_not eq "'Popcorn Cauliflower'"
+    end
+  end
 end
