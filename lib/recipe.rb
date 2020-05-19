@@ -30,6 +30,6 @@ class Recipe
 
   def self.find(id)
     result = DatabaseConnection.query("SELECT * FROM recipes WHERE id = #{id};")
-    self.new(result[0]['title'], result[0]['url'], result[0]['id'])
+    new(result[0]['title'], result[0]['url'], result[0]['id'])
   end
 end

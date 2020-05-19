@@ -5,12 +5,10 @@ require 'pg'
 require 'web_helper'
 
 describe Recipe do
-
   before(:each) do
-   create_recipes
+    create_recipes
   end
 
-  
   describe '.all' do
     it 'returns a list of all recipes' do
       connection = PG.connect(dbname: 'recipe_manager_test')
@@ -30,18 +28,18 @@ describe Recipe do
     end
   end
 
-  describe ".update" do
-    it "updates a recipe in the database" do
+  describe '.update' do
+    it 'updates a recipe in the database' do
       recipes = Recipe.all
-      Recipe.update(recipes[0].id, "https://www.mobkitchen.co.uk/recipes/creamy-vegan-risotto", "Vegan Risotto")
+      Recipe.update(recipes[0].id, 'https://www.mobkitchen.co.uk/recipes/creamy-vegan-risotto', 'Vegan Risotto')
       new_recipes = Recipe.all
-      expect(new_recipes[-1].url).to eq "https://www.mobkitchen.co.uk/recipes/creamy-vegan-risotto"
-      expect(new_recipes[-1].title).to eq "Vegan Risotto"
+      expect(new_recipes[-1].url).to eq 'https://www.mobkitchen.co.uk/recipes/creamy-vegan-risotto'
+      expect(new_recipes[-1].title).to eq 'Vegan Risotto'
     end
   end
 
-  describe ".delete" do
-    it "deletes a recipe from the database" do
+  describe '.delete' do
+    it 'deletes a recipe from the database' do
       recipes = Recipe.all
       Recipe.delete(recipes[0].id)
       updated_recipes = Recipe.all
@@ -50,9 +48,9 @@ describe Recipe do
     end
   end
 
-  describe ".find" do
-    it "returns requested recipe" do
-      Recipe.create("https://www.mobkitchen.co.uk/recipes/mobs-summer-tomato-pasta", "Pasta")
+  describe '.find' do
+    it 'returns requested recipe' do
+      Recipe.create('https://www.mobkitchen.co.uk/recipes/mobs-summer-tomato-pasta', 'Pasta')
 
       recipes = Recipe.all
 

@@ -36,7 +36,5 @@ class RecipeManager < Sinatra::Base
     redirect '/recipes'
   end
 
-
-
   run! if app_file == $PROGRAM_NAME
 end
