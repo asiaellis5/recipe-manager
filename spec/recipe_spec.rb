@@ -49,4 +49,21 @@ describe Recipe do
       expect(updated_recipes[0].title).to_not eq "'Popcorn Cauliflower'"
     end
   end
+
+  describe ".find" do
+    it "returns requested recipe" do
+      Recipe.create("https://www.mobkitchen.co.uk/recipes/mobs-summer-tomato-pasta", "Pasta")
+
+      recipes = Recipe.all
+
+      recipe = recipes[-1]
+
+      result = Recipe.find(recipe.id)
+
+      expect(result).to be_a Recipe
+      expect(result.id).to eq recipe.id
+      expect(result.title).to eq 'Pasta'
+      expect(result.url).to eq 'https://www.mobkitchen.co.uk/recipes/mobs-summer-tomato-pasta'
+    end
+  end
 end
