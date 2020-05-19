@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Adding Recipes' do
   scenario 'it allows the user to add a new recipe' do
     visit('/')

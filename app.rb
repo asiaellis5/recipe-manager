@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require './lib/recipe'
 
 class RecipeManager < Sinatra::Base
   get '/' do
-    erb :'index'
+    erb :index
   end
 
   get '/recipes' do
@@ -16,5 +18,5 @@ class RecipeManager < Sinatra::Base
     redirect '/recipes'
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
