@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/recipe'
 require './database_connection_setup'
+require 'uri'
+
 
 class RecipeManager < Sinatra::Base
+  enable :sessions
+  register Sinatra::Flash
   use Rack::MethodOverride
 
   get '/' do
@@ -17,7 +22,7 @@ class RecipeManager < Sinatra::Base
   end
 
   post '/recipes/add' do
-    Recipe.create(params[:url], params[:title])
+    flash[:notice] = 'Error invalid url' unless Recipe.create(params[:url], params[:title])
     redirect '/recipes'
   end
 

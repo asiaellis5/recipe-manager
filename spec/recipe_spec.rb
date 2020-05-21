@@ -21,6 +21,13 @@ describe Recipe do
   end
 
   describe '.create' do
+    it "does not create a recipe if the URL is not valid" do
+      Recipe.create('I am not a URL', 'Haloumi Wrap')
+      expect(Recipe.all[-1].url).not_to eq 'I am not a URL'
+      expect(Recipe.all[-1].title).not_to eq 'Haloumi Wrap'
+    end
+
+
     it 'adds a new recipe to the database' do
       Recipe.create('https://www.mobkitchen.co.uk/recipes/halloumi-wrap', 'Haloumi Wrap')
       recipes = Recipe.all
