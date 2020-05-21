@@ -5,6 +5,10 @@
   </div>
 <% end %>
 
+<% if @user %>
+  <h1>Welcome <%= @user.email %></h1>
+<% end %>
+
 <form action="/recipes/add" method="post">
 <input type="text" name= title size=30 placeholder= "title">
   <input type="text" name= url size=30 placeholder= "url">

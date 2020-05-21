@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/recipe'
 require './lib/comment'
+require './lib/user'
 require './database_connection_setup'
 require 'uri'
 
@@ -17,7 +18,18 @@ class RecipeManager < Sinatra::Base
     erb :index
   end
 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    user = User.create(params[:email], params[:password])
+    session[:user_id] = user.id
+    redirect '/recipes'
+  end
+
   get '/recipes' do
+    @user = User.find(session[:user_id])
     @recipes = Recipe.all
     erb :'recipes/index'
   end
