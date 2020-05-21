@@ -14,7 +14,12 @@
 <ul>
 <% @recipes.each do |recipe|%>
   <a href='<%= recipe.url %>'>
-  <li><%=recipe.title %></li>
+  <li><%=recipe.title %></li></a>
+</ul>
+
+<% recipe.comments.each do |comment| %>
+    <li><%= comment.comment %></li>
+  <% end %>
 
   <form action="/recipes/<%= recipe.id %>/update" method="get">
   <input type="submit" value="Update" id="Update<%=recipe.title%>" placeholder="Update">
@@ -24,7 +29,13 @@
   <input type="submit" value="Delete" id="Delete<%=recipe.title%>" placeholder="Delete">
   <input type="hidden" name="_method" value="delete">
 </form>
+
+<form action="/recipes/<%= recipe.id %>/addcomments" method="get">
+  <input type="submit" value="Add Comment" id="AddComment<%=recipe.title%>">
+</form>
+
 <% end %>
+
 </ul>
 
 <form action="/" method="get">

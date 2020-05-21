@@ -3,6 +3,7 @@
 require 'recipe'
 require 'pg'
 require 'web_helper'
+require 'comment'
 
 describe Recipe do
   before(:each) do
@@ -72,6 +73,17 @@ describe Recipe do
       expect(result.id).to eq recipe.id
       expect(result.title).to eq 'Pasta'
       expect(result.url).to eq 'https://www.mobkitchen.co.uk/recipes/mobs-summer-tomato-pasta'
+    end
+  end
+
+  describe "#comments" do
+    let(:comment_class) {double(:comment_class)}
+    
+    it "returns a list of comments on the recipe" do
+      recipes = Recipe.all
+      expect(comment_class).to receive(:where).with(recipes[0].id)
+      
+      recipes[0].comments(comment_class)
     end
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'database_connection'
-require 'comment'
+require_relative 'comment'
 
 class Recipe
   attr_reader :title, :url, :id

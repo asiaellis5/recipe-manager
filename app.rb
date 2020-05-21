@@ -3,6 +3,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/recipe'
+require './lib/comment'
 require './database_connection_setup'
 require 'uri'
 
@@ -38,6 +39,16 @@ class RecipeManager < Sinatra::Base
 
   delete '/recipe/:id' do
     Recipe.delete(params[:id])
+    redirect '/recipes'
+  end
+
+  get '/recipes/:id/addcomments' do
+    @recipe = Recipe.find(params[:id])
+    erb :'recipes/add_comment'
+  end
+
+  post '/recipes/:id/comments' do
+    Comment.create(params[:comment], params[:id])
     redirect '/recipes'
   end
 

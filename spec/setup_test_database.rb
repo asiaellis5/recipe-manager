@@ -6,6 +6,5 @@ def setup_test_database
   p 'setting up test database'
 
   connection = PG.connect(dbname: 'recipe_manager_test')
-
-  connection.exec('TRUNCATE recipes;')
+  connection.exec('TRUNCATE recipes, comments;')
 end
