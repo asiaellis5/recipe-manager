@@ -17,9 +17,11 @@
   <li><%=recipe.title %></li></a>
 </ul>
 
+<ul>
 <% recipe.comments.each do |comment| %>
     <li><%= comment.comment %></li>
   <% end %>
+</ul>
 
   <form action="/recipes/<%= recipe.id %>/update" method="get">
   <input type="submit" value="Update" id="Update<%=recipe.title%>" placeholder="Update">
