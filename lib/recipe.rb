@@ -17,6 +17,7 @@ class Recipe
   end
 
   def self.create(url, title)
+    return false unless is_url?(url)
     result = DatabaseConnection.query("INSERT INTO recipes (url, title) VALUES ('#{url}', '#{title}') RETURNING id, url, title;")
   end
 
@@ -31,5 +32,11 @@ class Recipe
   def self.find(id)
     result = DatabaseConnection.query("SELECT * FROM recipes WHERE id = #{id};")
     new(result[0]['title'], result[0]['url'], result[0]['id'])
+  end
+
+  private
+
+  def self.is_url?(url)
+    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
   end
 end
