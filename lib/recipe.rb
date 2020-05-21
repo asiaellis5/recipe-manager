@@ -17,7 +17,7 @@ class Recipe
   end
 
   def self.create(url, title)
-    return false unless is_url?(url)
+    return false if !is_url?(url)
     result = DatabaseConnection.query("INSERT INTO recipes (url, title) VALUES ('#{url}', '#{title}') RETURNING id, url, title;")
   end
 

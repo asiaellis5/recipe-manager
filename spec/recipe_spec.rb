@@ -25,6 +25,9 @@ describe Recipe do
       Recipe.create('I am not a URL', 'Haloumi Wrap')
       expect(Recipe.all[-1].url).not_to eq 'I am not a URL'
       expect(Recipe.all[-1].title).not_to eq 'Haloumi Wrap'
+      expect(Recipe.all[-1].title).to eq 'Haloumi Salad'
+      expect(Recipe.all[-1].url).to eq 'http://www.mobkitchen.co.uk/recipes/halloumi-crouton-super-salad'
+      
     end
 
 
