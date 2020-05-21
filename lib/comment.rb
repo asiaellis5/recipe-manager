@@ -18,4 +18,9 @@ class Comment
   def self.create(comment, recipe_id)
     result = DatabaseConnection.query("INSERT INTO comments (comment, recipe_id) VALUES ('#{comment}', '#{recipe_id}') RETURNING id, comment, recipe_id;")
   end
+
+  def self.where(recipe_id)
+    result = DatabaseConnection.query("SELECT * FROM comments WHERE recipe_id = #{recipe_id};")
+    result.map { |comment| new(comment['id'], comment['comment'], comment['recipe_id']) }
+  end
 end
