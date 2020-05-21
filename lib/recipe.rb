@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'database_connection'
+require 'comment'
 
 class Recipe
   attr_reader :title, :url, :id
@@ -32,6 +33,10 @@ class Recipe
   def self.find(id)
     result = DatabaseConnection.query("SELECT * FROM recipes WHERE id = #{id};")
     new(result[0]['title'], result[0]['url'], result[0]['id'])
+  end
+
+  def comments(comment = Comment)
+    comment.where(id)
   end
 
   private
