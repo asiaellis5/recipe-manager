@@ -6,7 +6,6 @@ describe User do
     user = User.create('test@test.com', 'password')
     users = User.all
     expect(users[0].email).to eq('test@test.com')
-    expect(users[0].password).to eq('password')
     end
   end
 

@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
 
   attr_reader :email, :password, :id
@@ -14,7 +16,8 @@ class User
   end
 
   def self.create(email, password)
-    result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES ('#{email}', '#{password}') RETURNING id, email, password;")
+    encrypted_password = BCrypt::Password.create(password)
+    result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES ('#{email}', '#{encrypted_password}') RETURNING id, email, password;")
     User.new(result[0]['id'], result[0]['email'], result[0]['password'])
   end
 
