@@ -22,7 +22,6 @@ describe User do
     it "returns a user given a correct username and password" do
       user = User.create('test@test.com', 'password')
       authenticated_user = User.authenticate('test@test.com', 'password')
-
       expect(authenticated_user.id).to eq user.id
     end
 

@@ -43,6 +43,12 @@ class RecipeManager < Sinatra::Base
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/recipes')
+  end
+
   get '/recipes' do
     @user = User.find(session[:user_id])
     @recipes = Recipe.all
