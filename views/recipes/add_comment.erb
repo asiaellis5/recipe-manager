@@ -1,4 +1,25 @@
-<form action="/recipes/<%= @recipe.id %>/comments" method="post">
-  <input type="text" name="comment" />
-  <input type="submit" value="Add" />
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link type='text/css' rel='stylesheet' href='/css/index.css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<nav class="navbar navbar-dark bg-dark">
+ <form action="/sessions/destroy" method="post">
+  <button class="btn btn-primary m-5" type="submit" value="Sign out" >Sign out</button>
 </form>
+</nav>
+<body>
+<center>
+<h2>Add a comment</h2>
+<form action="/recipes/<%= @recipe.id %>/comments" method="post">
+  <input type="textarea" size=80 name="comment" />
+  <button type="submit" class="btn btn-primary" value="Add" >Add</button>
+</form>
+<form action="/recipes" method="get">
+    <button class="btn btn-primary" type="submit">Back</button>
+</form>
+</center>
+</body>
+</html>

@@ -5,12 +5,13 @@
   <link type='text/css' rel='stylesheet' href='/css/index.css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
-<body>
 <nav class="navbar navbar-dark bg-dark">
  <form action="/sessions/destroy" method="post">
   <button class="btn btn-primary m-5" type="submit" value="Sign out" >Sign out</button>
 </form>
 </nav>
+<body>
+
 
 <h3><%= flash[:notice] %></h3>
 <center>
@@ -28,21 +29,20 @@
 <form action="/recipes/add" method="post">
 <input type="text" name= title size=30 placeholder= "title">
   <input type="text" name= url size=30 placeholder= "url">
-  <input type="submit" value="Add Recipe">
+  <input type="submit" value="Add Recipe" class="btn btn-warning">
 </form>
 
 </div>
-<br>
-
-
 
 <center>
 <h3>Recipes</h3>
+<div id="recipes">
 <% @recipes.each do |recipe|%>
+<div id="recipe-box">
   <a href='<%= recipe.url %>'>
   <h4><%=recipe.title %></h4></a>
 
-<h5>Comments</h5>
+<h5>Comments:</h5>
 <% recipe.comments.each do |comment| %>
     <h6><%= comment.comment %></h6>
   <% end %>
@@ -63,9 +63,10 @@
 </form>
 </div>
 
-
+</div>
 <% end %>
 </ul>
+</div>
 
 </center>
 

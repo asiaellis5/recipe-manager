@@ -1,7 +1,25 @@
+body {
+  background-image: url("https://i.pinimg.com/originals/21/4d/6e/214d6eab8bf26e0070d9614846096b18.png");
+}
+
+a {
+  color: white;
+}
+
 #recipes {
+  position: absolute;
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  left: 8px;
+}
+
+#recipe-box {
   border: solid;
+  margin: 5px;
+  width: 19%;
+  background-color: rgba(236, 236, 236, 1);
 }
 
 #add-recipe {
