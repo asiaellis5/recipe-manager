@@ -1,7 +1,7 @@
 require 'web_helper'
 feature 'Validation Error' do
   scenario 'An error message pops up if user enters invalid url' do
-    visit('/')
+    add_recipe
     fill_in :title, with: 'Title'
     fill_in :url, with: 'I am not a url'
     click_button('Add Recipe')
