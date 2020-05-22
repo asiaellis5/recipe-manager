@@ -46,7 +46,7 @@ class RecipeManager < Sinatra::Base
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
-    redirect('/recipes')
+    redirect('/')
   end
 
   get '/recipes' do
@@ -82,6 +82,7 @@ class RecipeManager < Sinatra::Base
 
   post '/recipes/:id/comments' do
     Comment.create(params[:comment], params[:id])
+    flash[:notice] = "Recipe Updated"
     redirect '/recipes'
   end
 

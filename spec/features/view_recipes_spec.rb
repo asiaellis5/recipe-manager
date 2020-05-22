@@ -4,7 +4,7 @@ require 'web_helper'
 feature 'Viewing recipes' do
   scenario 'visiting inde page' do
     visit('/')
-    expect(page).to have_content 'Recipes'
+    expect(page).to have_content 'Recipe Manager'
   end
 
   scenario 'A user can see recipes' do

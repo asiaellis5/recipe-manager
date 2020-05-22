@@ -3,21 +3,27 @@
   <meta charset="utf-8">
   <title></title>
   <link type='text/css' rel='stylesheet' href='/css/index.css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+<nav class="navbar navbar-dark bg-dark">
+ <form action="/sessions/destroy" method="post">
+  <button class="btn btn-primary m-5" type="submit" value="Sign out" >Sign out</button>
+</form>
+</nav>
 
-<% flash.keys.each do |type| %>
-  <div data-alert class="flash <%= type %> alert-box radius">
-    <%= flash[type] %>
-    <a href="#" class="close">&times;</a>
-  </div>
-<% end %>
-
+<h3><%= flash[:notice] %></h3>
+<center>
 <% if @user %>
-  <h1>Welcome <%= @user.email %></h1>
+  <h4>Welcome <%= @user.email %></h4>
 <% end %>
+</center>
+
+<center><h1>Recipe Manager</h1></center>
 
 <div id="add-recipe">
+
+<h4>Add a new recipe:</h4>
 
 <form action="/recipes/add" method="post">
 <input type="text" name= title size=30 placeholder= "title">
@@ -26,49 +32,42 @@
 </form>
 
 </div>
+<br>
 
 
 
-<ul>
+<center>
+<h3>Recipes</h3>
 <% @recipes.each do |recipe|%>
-<div id="recipes">
   <a href='<%= recipe.url %>'>
-  <li><%=recipe.title %></li></a>
-</ul>
+  <h4><%=recipe.title %></h4></a>
 
-<ul>
+<h5>Comments</h5>
 <% recipe.comments.each do |comment| %>
-    <li><%= comment.comment %></li>
+    <h6><%= comment.comment %></h6>
   <% end %>
-</ul>
 
 
+<div id="buttons">
   <form action="/recipes/<%= recipe.id %>/update" method="get">
-  <input type="submit" value="Update" id="Update<%=recipe.title%>" placeholder="Update">
+  <button type="submit" class="btn btn-warning"value="Update" id="Update<%=recipe.title%>" placeholder="Update">Update</button>
 </form>
 
 <form action="/recipe/<%=recipe.id%>" method="post">
-  <input type="submit" value="Delete" id="Delete<%=recipe.title%>" placeholder="Delete">
+  <button type="submit" class="btn btn-danger" value="Delete" id="Delete<%=recipe.title%>" placeholder="Delete">Delete</button>
   <input type="hidden" name="_method" value="delete">
 </form>
 
 <form action="/recipes/<%= recipe.id %>/addcomments" method="get">
-  <input type="submit" value="Add Comment" id="AddComment<%=recipe.title%>">
+  <button type="submit" class="btn btn-primary" value="Add Comment" id="AddComment<%=recipe.title%>">Add Comment</button>
 </form>
+</div>
 
 
 <% end %>
-</div>
 </ul>
 
-
-<form action="/" method="get">
-  <input type="submit" value="Back" placeholder="Back">
-</form>
-
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out" />
-</form>
+</center>
 
 
 </body>

@@ -9,3 +9,8 @@
   width: 100%;
   justify-content: center;
 }
+
+#buttons {
+  display: flex;
+  justify-content: center;
+}

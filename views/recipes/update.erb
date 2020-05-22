@@ -1,6 +1,21 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link type='text/css' rel='stylesheet' href='/css/index.css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<center>
+<h4>Update Recipe</h4>
 <form action="/recipes/<%= @recipe.id %>" method="post">
   <input type="hidden" name="_method" value="PATCH" />
   <input type="text" name="title" value="<%= @recipe.title %>"  />
   <input type="text" name="url" value="<%= @recipe.url %>" />
-  <input type="submit" value="Submit" />
+  <button type="submit" class="btn btn-warning" value="Submit" >Update</button>
 </form>
+
+</center>
+
+</body>
+</html>
