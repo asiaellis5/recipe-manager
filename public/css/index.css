@@ -1,0 +1,14 @@
+#recipes {
+  background-color: red;
+  width: 100%;
+  text-align: center;
+  border: solid;
+  border-color: green;
+}
+
+#add-recipe {
+  text-align: center;
+  background-color: blue;
+  width: 100%;
+  justify-content: center;
+}

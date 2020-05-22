@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link type='text/css' rel='stylesheet' href='/css/index.css'>
+</head>
+<body>
+
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
     <%= flash[type] %>
@@ -9,14 +17,21 @@
   <h1>Welcome <%= @user.email %></h1>
 <% end %>
 
+<div id="add-recipe">
+
 <form action="/recipes/add" method="post">
 <input type="text" name= title size=30 placeholder= "title">
   <input type="text" name= url size=30 placeholder= "url">
   <input type="submit" value="Add Recipe">
 </form>
 
+</div>
+
+
+
 <ul>
 <% @recipes.each do |recipe|%>
+<div id="recipes">
   <a href='<%= recipe.url %>'>
   <li><%=recipe.title %></li></a>
 </ul>
@@ -26,6 +41,7 @@
     <li><%= comment.comment %></li>
   <% end %>
 </ul>
+
 
   <form action="/recipes/<%= recipe.id %>/update" method="get">
   <input type="submit" value="Update" id="Update<%=recipe.title%>" placeholder="Update">
@@ -40,10 +56,16 @@
   <input type="submit" value="Add Comment" id="AddComment<%=recipe.title%>">
 </form>
 
-<% end %>
 
+<% end %>
+</div>
 </ul>
+
 
 <form action="/" method="get">
   <input type="submit" value="Back" placeholder="Back">
 </form>
+
+
+</body>
+</html>
